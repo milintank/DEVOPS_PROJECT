@@ -2,17 +2,17 @@
 services:
   pythonapp:
     container_name: pythonapp
-    build:
+    build:                         # Bulid the image 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile       # Dockerfile for the python application
     ports:
-      - 8000:5000
+      - 8000:5000                  # expose port 5000 of the container to port 8000 on the host
     networks:
       - flasknet
     depends_on:
       - mysql
 
-  # mysql:
+  # mysql: MySQL database service
   mysql:
     image: mysql:latest
     container_name: mysql
